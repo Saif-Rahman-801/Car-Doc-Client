@@ -20,7 +20,7 @@ const Services = () => {
           <br /> fuga incidunt voluptatibus nemo vero numquam.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-3">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service} />
         ))}

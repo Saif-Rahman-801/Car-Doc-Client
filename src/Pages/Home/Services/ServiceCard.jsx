@@ -1,5 +1,5 @@
-import React from "react";
 
+import PropTypes from "prop-types"
 const ServiceCard = ({ service }) => {
   const { img, title, price } = service;
   return (
@@ -19,5 +19,13 @@ const ServiceCard = ({ service }) => {
     </div>
   );
 };
+
+ServiceCard.propTypes = {
+  service: PropTypes.shape({
+    img: PropTypes.any,
+    price: PropTypes.any,
+    title: PropTypes.any
+  })
+}
 
 export default ServiceCard;
