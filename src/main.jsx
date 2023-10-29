@@ -7,15 +7,16 @@ import Layout from "./Layout/Layout.jsx";
 import Home from "./Pages/Home/Home/Home.jsx";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
+import AuthProvider from "./Providers/AuthProvider";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout /> ,
+    element: <Layout />,
     children: [
       {
         path: "/",
-        element: <Home /> ,
+        element: <Home />,
       },
       {
         path: "/login",
@@ -23,16 +24,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp />
-      }
-    ]
+        element: <SignUp />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
- <div className="container mx-auto">
-   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
- </div>
+  <div className="container mx-auto">
+    <AuthProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </AuthProvider>
+  </div>
 );
