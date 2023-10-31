@@ -1,7 +1,7 @@
-
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
-  const { img, title, price } = service;
+  const { _id, img, title, price } = service;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -12,7 +12,9 @@ const ServiceCard = ({ service }) => {
           <h2 className="card-title">{title} </h2>
           <p>{price} </p>
           <div className="card-actions">
-            <button className="btn rounded-md bg-red-500">Buy Now</button>
+            <Link to={`/checkout/${_id}`}>
+              <button className="btn rounded-md bg-red-500">Book Now</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -22,6 +24,7 @@ const ServiceCard = ({ service }) => {
 
 ServiceCard.propTypes = {
   service: PropTypes.shape({
+    _id: PropTypes.any,
     img: PropTypes.any,
     price: PropTypes.any,
     title: PropTypes.any

@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: "/checkout/:id",
+        
+      }
     ],
   },
 ]);
