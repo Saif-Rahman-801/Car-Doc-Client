@@ -8,6 +8,7 @@ import Home from "./Pages/Home/Home/Home.jsx";
 import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import AuthProvider from "./Providers/AuthProvider";
+import Checkout from "./Pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        
-      }
+        element: <Checkout />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/checkout/${params.id}`),
+      },
     ],
   },
 ]);
